@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session RPE Report — 2026–27 Season · Luis Rodriguez-Castellano</title>
+  <meta name="description" content="A season of training load, correlated with countermovement rebound jump performance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/portfolio.css">
+</head>
+<body>
+
+<header class="container nav">
+  <div class="nav-row">
+    <a href="/" class="nav-mark">Luis Rodriguez-Castellano</a>
+    <a href="/" class="nav-back">← Portfolio</a>
+  </div>
+</header>
+
+<section class="container">
+  <div class="col">
+    <p class="story-eyebrow">Session RPE Report · 2026–27 Season</p>
+
+    <h1 class="story-head">
+      sRPE as a performance signal, not just a load log.
+    </h1>
+
+    <p class="story-lede">
+      Session RPE is often collected and rarely read. This report takes
+      every session the team has logged so far this season and renders it
+      as weekly load trends, acute-vs-chronic ratios (using exponentially 
+      weighted moving average; EWMA), team-vs-coach comparisons, and — the 
+      piece most load reports stop short of — correlation between 
+      load and the countermovement rebound jump performance.
+    </p>
+
+    <div class="story-body">
+      <h2>The question</h2>
+      <p>
+        If we're going to ask every athlete to report their perceived 
+        exertion after each session, we need to ensure that the information 
+        collected serves a meaningful purpose. Our goal was to answer two 
+        important questions: First, how does the team's training load fluctuate 
+        throughout the season, and can we identify periods of increased or decreased 
+        training demands? Second, how do these training loads relate to subsequent 
+        neuromuscular performance, as measured through our jump assessments? 
+        Ultimately, we wanted to move beyond simply monitoring training load and 
+        begin examining how the demands imposed on our athletes might influence 
+        their physical performance in the days that follow.
+      </p>
+
+      <h2>The data</h2>
+      <p>
+        The report consists of every logged session for the 2026–27 season 
+        to date, broken into focus, intensity (sRPE), load (sRPE × duration), 
+        and separated <em>RPE legs</em> / <em>RPE lungs</em> ratings so the 
+        report can distinguish neuromuscular from cardiovascular stress. 
+        Jump data is pulled from the parallel countermovement rebound jump testing
+        protocol and aligned by date.
+      </p>
+
+      <h2>The approach</h2>
+      <p>
+        R Markdown report, rendered as a single interactive HTML file for
+        the coaching staff. Each section is a sport-science-standard load
+        metric (ACWR, EWMA, monotony & strain) rendered as a Plotly chart
+        with the team and individual athletes selectable. The correlation
+        sections use rolling windows at both the athlete-day and
+        team-week level so the staff can see signal at the level they
+        make decisions at.
+      </p>
+
+      <h2>What's in the report</h2>
+      <ul>
+        <li><strong>Session Focus Descriptives</strong><span>How much of each session type the team has done</span></li>
+        <li><strong>Athlete-Level Distributions</strong><span>Per-athlete sRPE / RPE legs / RPE lungs spread</span></li>
+        <li><strong>Season Phase Comparison</strong><span>Preseason vs in-season load profile</span></li>
+        <li><strong>Weekly Load Trends</strong><span>Group sRPE week-over-week with jump height and rebound-DRI overlay</span></li>
+        <li><strong>EWMA Acute vs Chronic Load</strong><span>Exponentially-weighted moving averages for load monitoring</span></li>
+        <li><strong>Acute:Chronic Workload Ratio</strong><span>ACWR with sweet-spot and danger-zone shading</span></li>
+        <li><strong>Monotony &amp; Strain</strong><span>Within-week variability and total weekly stress</span></li>
+        <li><strong>AM vs PM Session Analysis</strong><span>Paired within-day differences and prior-day correlation to next-day RPE</span></li>
+        <li><strong>Load vs Performance Correlation Matrix</strong><span>Correlation between daily load metrics and next-day CMRJ performance, at both athlete-day and team-week resolutions</span></li>
+        <li><strong>Cumulative Team Load</strong><span>Season-to-date totals</span></li>
+      </ul>
+
+      <p style="margin-top:24px; color:var(--text-muted);">
+        All athlete identifiers have been removed for public display.
+        The report preserves the structure, visualizations, and analyses
+        shared with the coaching staff.
+      </p>
+
+      <div class="cta-row">
+        <a href="nmsu_srpe_report_2026_2027.html" class="cta" target="_blank" rel="noopener">
+          View full report
+          <span class="cta-caret">→</span>
+        </a>
+        <p class="cta-note">Opens in a new tab · ~3 MB · interactive HTML with Plotly</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="container">
+    <p>© 2026 Luis Rodriguez-Castellano · <a href="/" style="color:var(--text-muted);">Back to portfolio</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

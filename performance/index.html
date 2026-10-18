@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Report — 2026 Season · Luis Rodriguez-Castellano</title>
+  <meta name="description" content="Baseline physical performance for 15 basketball athletes, rendered as a single scrollable report.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/portfolio.css">
+</head>
+<body>
+
+<header class="container nav">
+  <div class="nav-row">
+    <a href="/" class="nav-mark">Luis Rodriguez-Castellano</a>
+    <a href="/" class="nav-back">← Portfolio</a>
+  </div>
+</header>
+
+<section class="container">
+  <div class="col">
+    <p class="story-eyebrow">Performance Report · 2026-27 Season</p>
+
+    <h1 class="story-head">
+      Baseline physical performance for 15 athletes, in one scrollable page.
+    </h1>
+
+    <p class="story-lede">
+      At the start of the 2026 season I tested the women's basketball
+      roster across four physical-performance domains. This report turns
+      those raw numbers into a ranked, simple document the coaching staff 
+      can use as a shared reference for the rest of the year. The document 
+      is rendered automatically through an automated update which pulls data 
+      from source API's and renders the document as-is.
+    </p>
+
+    <div class="story-body">
+      <h2>The question</h2>
+      <p>
+        Where does every athlete currently stand on the physical qualities
+        that matter for basketball — vertical force production, explosive
+        output, reactive strength, and absolute lower-body strength — and
+        who sits above or below the group reference on each one? The answer
+        has to be legible to a head coach on a quick glimpse.
+      </p>
+
+      <h2>The data</h2>
+      <p>
+        Four tests collected over a preseason testing block, with the
+        Epley estimated 1RM pulled weekly from the squat program, 
+        a simple way to explain the progressive overload of the athletes. 
+        Later detail could be added to further explain estimated 1RM using
+        velocity-based technology via the Perch sensors:
+      </p>
+      <ul>
+        <li><strong>IMTP</strong><span>Isometric mid-thigh pull. Peak force expressed relative to body mass — a lower-body isometric-strength ceiling.</span></li>
+        <li><strong>SJ</strong><span>Squat jump. Concentric-only vertical performance, isolating the push without stretch-shortening-cycle contribution.</span></li>
+        <li><strong>CMRJ</strong><span>Countermovement jump followed by a rebound jump. Captures both the countermovement vertical and the reactive strength of the rebound.</span></li>
+        <li><strong>Estimated 1RM back squat</strong><span>Weekly estimate from the training programs accomplished work, converted to a per-kilogram-of-bodyweight relative figure for ranking.</span></li>
+      </ul>
+
+      <h2>The approach</h2>
+      <p>
+        Everything is written in R and rendered through R Markdown to a
+        single-file HTML document. Each test gets a ranked table (gt),
+        a distribution plot (ggplot2), and a short interpretation. The
+        file ships as one HTML attachment — no server, no login, no
+        dashboard to log into — which is how coaching staff actually
+        consume reports in practice.
+      </p>
+
+      <h2>What's in the report</h2>
+      <ul>
+        <li><strong>Team Performance Ranking</strong><span>Overall ranked view across the four tests</span></li>
+        <li><strong>IMTP Relative Force Ranking</strong><span>Per-kilogram peak force, athlete-by-athlete</span></li>
+        <li><strong>Relative Back Squat Strength</strong><span>Weekly estimated 1RM, normalized to body mass</span></li>
+        <li><strong>Relative Strength Distribution</strong><span>Where each athlete sits in the group distribution</span></li>
+        <li><strong>Metric Definitions</strong><span>Plain-language reference for staff who are new to the tests</span></li>
+      </ul>
+
+      <p style="margin-top:24px; color:var(--text-muted);">
+        All athlete identifiers have been removed for public display.
+        The report preserves the structure, visualizations, and
+        interpretations shared with the coaching staff.
+      </p>
+
+      <div class="cta-row">
+        <a href="anonymous_performance_report.html" class="cta" target="_blank" rel="noopener">
+          View full report
+          <span class="cta-caret">→</span>
+        </a>
+        <p class="cta-note">Opens in a new tab · ~1.5 MB · interactive HTML</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="container">
+    <p>© 2026 Luis Rodriguez-Castellano · <a href="/" style="color:var(--text-muted);">Back to portfolio</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

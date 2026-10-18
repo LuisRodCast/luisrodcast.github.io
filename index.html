@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luis Rodriguez-Castellano, PhD, CPSS, CSCS — Applied Sport Scientist | Sports Performance Coach</title>
+  <meta name="description" content="Analytics work for basketball programs — performance reporting, training-load pipelines, and sideline decision tools.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body>
+
+<header class="container nav">
+  <div class="nav-row">
+    <a href="/" class="nav-mark">Luis Rodriguez-Castellano</a>
+    <nav aria-label="Primary">
+      <a href="#projects" class="nav-back">Projects</a>
+      &nbsp;·&nbsp;
+      <a href="#about" class="nav-back">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="container hero">
+  <h1 class="hero-name">Luis Rodriguez-Castellano, PhD, CPSS, CSCS</h1>
+  <p class="hero-role">Applied Sport Scientist | Sports Performance Coach</p>
+
+  <p class="hero-statement">
+    Analytics that help the coaching staff decide, not just read.
+  </p>
+
+  <p class="hero-lede">
+    I build data pipelines, performance reports, dashboards, and sideline tools for
+    basketball programs — turning the training-load, strength, and
+    jump-testing data that teams already collect into decisions the
+    coaching staff can act on.
+  </p>
+
+  <div class="hero-meta">
+    <a href="https://www.researchgate.net/profile/Luis-Rodriguez-Castellano/research">ResearchGate</a>
+    <a href="https://drcoachluisrodriguez.wixsite.com/dr--luis-rodriguez-c">Personal site</a>
+    <a href="https://github.com/LuisRodCast">GitHub</a>
+    <a href="mailto:drluisrod.perfscience@gmail.com">Email</a>
+  </div>
+</section>
+
+<section id="projects" class="container body-section">
+  <h2 class="section-head">Selected work</h2>
+
+  <article class="project">
+    <p class="project-type">Performance Report · 2026-27 Season</p>
+    <h3 class="project-title">Baseline physical performance across 15 athletes, in one scrollable page.</h3>
+    <p class="project-sub">
+      Isometric mid-thigh pull, squat jump, countermovement rebound jump,
+      and estimated 1RM back squat — collected over a six-week preseason
+      block and rendered as a single ranked report the coaching staff can
+      read in a few minutes. All identifying information has been removed
+      for public display.
+    </p>
+    <a href="performance/" class="project-link">Open the project →</a>
+    <p class="project-aside">R · R Markdown · gt tables · ggplot2</p>
+  </article>
+
+  <article class="project">
+    <p class="project-type">Session RPE Report · 2026–27 Season</p>
+    <h3 class="project-title">Every logged session rendered as weekly load, acute-chronic ratios, and jump-performance correlations.</h3>
+    <p class="project-sub">
+      In a limited budget program, sports science can still be applied using 
+      principles that help in analyzing pertinent data and with tools that 
+      have been validated through research. Session RPE is often collected and 
+      rarely read. This report takes every logged session so far and renders it 
+      as weekly sRPE / RPE-legs / RPE-lungs trends, EWMA acute vs chronic load, 
+      ACWR, monotony & strain, AM vs PM paired analysis, and — the piece most 
+      load reports stop short of — correlation between daily load and next-day
+      countermovement rebound jump performance.
+    </p>
+    <a href="srpe/" class="project-link">Open the project →</a>
+    <p class="project-aside">R · R Markdown · plotly · correlation analysis</p>
+  </article>
+
+  <article class="project">
+    <p class="project-type">Shiny Application · In production</p>
+    <h3 class="project-title">Live Play Call Tracker — an iPad-first sideline tool.</h3>
+    <p class="project-sub">
+      A production Shiny app the coaching staff can use on an iPad during
+      practice and games. Logs every possession's play, result, ball reversals, and
+      paint touches, writes to a Turso cloud SQLite backend, and renders
+      cross-session trends (PPP, FG%, usage, quarter-by-quarter heatmaps). Deployed
+      on Posit Connect Cloud. Can ask about its upon request. 
+    </p>
+    <a href="https://github.com/LuisRodCast" class="project-link">Code on GitHub →</a>
+    <p class="project-aside">R Shiny · shinyMobile · Turso (libSQL) · Posit Connect Cloud</p>
+  </article>
+
+  <article class="project">
+    <p class="project-type">R Package · Open source</p>
+    <h3 class="project-title">perchr — a Perch VBT API client for R.</h3>
+    <p class="project-sub">
+      Pulls user, exercise, set, and rep data from the Perch
+      velocity-based-training API into tidy R data frames. Written and
+      maintained for internal use at NMSU, but can be used by anyone for 
+      pulling their own data with their own credentials; public on GitHub.
+    </p>
+    <a href="https://github.com/LuisRodCast/perchr" class="project-link">View on GitHub →</a>
+    <p class="project-aside">R package · httr2 · tibble</p>
+  </article>
+</section>
+
+<section id="about" class="container body-section">
+  <h2 class="section-head">About</h2>
+
+  <div class="col">
+    <p style="font-size:var(--fs-lg); line-height:1.6; color:var(--text); margin:0 0 24px 0;">
+      Applied sport scientist\sports performance coach based in Las Cruces, New Mexico, 
+      but originally from Jayuya, PR. PhD in Sports Physiology and Performance (Sports Science)
+      science. Day-to-day work covers everything that touches the women's
+      basketball performance program — testing, programming, load
+      monitoring, reporting, and the data infrastructure that makes those
+      possible without hand-pasting into spreadsheets every Monday.
+    </p>
+    <p style="color:var(--text-muted); margin:0;">
+      Open to conversations with professional organizations, player
+      development programs, and research collaborations.
+      &nbsp;<a href="mailto:drluisrod.perfscience@gmail.com" style="color:var(--text); border-bottom:1px solid var(--rule); text-decoration:none;">Email</a>.
+    </p>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="container">
+    <p>© 2026 Luis Rodriguez-Castellano · Built with R, HTML, and GitHub Pages</p>
+  </div>
+</footer>
+
+</body>
+</html>

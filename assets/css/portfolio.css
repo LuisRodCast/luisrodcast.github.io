@@ -1,0 +1,363 @@
+/* =========================================================================
+   portfolio.css
+   Shared styles. Loaded by index.html and every project story page.
+   ========================================================================= */
+
+:root {
+  --ink:        #0E1116;
+  --surface:    #171B22;
+  --rule:       #262B33;
+  --text:       #E9EDF2;
+  --text-muted: #8A94A2;
+  --accent:     #FF5B20;
+
+  --radius:     4px;
+  --gutter:     24px;
+  --max-text:   680px;
+  --max-wide:   920px;
+
+  --fs-xs:      12px;
+  --fs-sm:      14px;
+  --fs-base:    16px;
+  --fs-lg:      19px;
+  --fs-xl:      28px;
+  --fs-2xl:     40px;
+  --fs-3xl:     56px;
+  --fs-4xl:     72px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --fs-xl:      22px;
+    --fs-2xl:     32px;
+    --fs-3xl:     40px;
+    --fs-4xl:     48px;
+  }
+}
+
+/* ---------------------------------------------------------------- Reset */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ------------------------------------------------------------- Container */
+
+.container {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.col {
+  max-width: var(--max-text);
+}
+
+/* --------------------------------------------------------------- Nav bar */
+
+.nav {
+  padding: 32px 0 64px 0;
+}
+.nav-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.nav-mark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: var(--fs-base);
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-mark:hover { color: var(--accent); }
+.nav-back {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.nav-back:hover { color: var(--text); }
+
+/* ----------------------------------------------------------------- Hero */
+
+.hero {
+  padding: 32px 0 96px 0;
+}
+
+h1.hero-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: var(--fs-lg);
+  letter-spacing: -0.01em;
+  color: var(--text-muted);
+  margin: 0 0 8px 0;
+}
+
+p.hero-role {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  margin: 0 0 56px 0;
+  line-height: 1.5;
+}
+
+.hero-statement {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: var(--fs-3xl);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0 0 40px 0;
+  max-width: 20ch;
+}
+
+.hero-lede {
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--text);
+  max-width: var(--max-text);
+  margin: 0 0 48px 0;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.hero-meta a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  transition: border-color 150ms;
+}
+.hero-meta a:hover {
+  border-bottom-color: var(--text);
+}
+
+/* ------------------------------------------------------------- Sections */
+
+section.body-section {
+  padding: 0 0 96px 0;
+}
+
+h2.section-head {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  margin: 0 0 40px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ------------------------------------------------------------ Project list */
+
+/* Projects are article-sections, not cards. Separated by hairline rules. */
+.project {
+  padding: 40px 0;
+  border-top: 1px solid var(--rule);
+  max-width: var(--max-text);
+}
+.project:first-of-type { border-top: none; padding-top: 0; }
+
+.project-type {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 12px 0;
+}
+
+h3.project-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: var(--fs-2xl);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0 0 20px 0;
+}
+
+.project-sub {
+  font-size: var(--fs-base);
+  color: var(--text-muted);
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+}
+
+.project-link {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-sm);
+  color: var(--text);
+  text-decoration: none;
+  margin-top: 8px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--text);
+  transition: color 150ms;
+}
+.project-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.project-aside {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* --------------------------------------------------------- Story page body */
+
+.story-eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 20px 0;
+}
+
+h1.story-head {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: var(--fs-3xl);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--text);
+  margin: 0 0 32px 0;
+  max-width: 18ch;
+}
+
+.story-lede {
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--text);
+  max-width: var(--max-text);
+  margin: 0 0 56px 0;
+}
+
+.story-body h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  margin: 48px 0 16px 0;
+}
+
+.story-body p {
+  font-size: var(--fs-base);
+  color: var(--text);
+  margin: 0 0 20px 0;
+  max-width: var(--max-text);
+  line-height: 1.7;
+}
+
+.story-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  max-width: var(--max-text);
+  border-top: 1px solid var(--rule);
+}
+.story-body ul li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--fs-base);
+  color: var(--text);
+  display: flex;
+  gap: 20px;
+}
+.story-body ul li strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 180px;
+  flex-shrink: 0;
+}
+.story-body ul li span {
+  color: var(--text-muted);
+}
+
+/* ------------------------------------------------------------------ CTA */
+
+/* The one color moment per page. */
+.cta-row {
+  margin: 72px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+a.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+  background: var(--accent);
+  color: #0E1116;
+  text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: var(--fs-base);
+  letter-spacing: -0.005em;
+  border-radius: var(--radius);
+  transition: transform 150ms, box-shadow 150ms;
+}
+a.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(255, 91, 32, 0.25);
+}
+a.cta .cta-caret {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
+}
+
+.cta-note {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+/* ------------------------------------------------------------------- Foot */
+
+footer.site-foot {
+  border-top: 1px solid var(--rule);
+  padding: 48px 0;
+  margin-top: 96px;
+}
+footer.site-foot p {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ----------------------------------------------------- Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  a.cta:hover { transform: none; }
+}
+
+/* ------------------------------------------------- Focus (keyboard a11y) */
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
