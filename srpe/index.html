@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Session RPE Report — 2026–27 Season · Luis Rodriguez-Castellano</title>
-  <meta name="description" content="A season of training load, correlated with countermovement rebound jump performance.">
+  <meta name="description" content="A season of training load, correlated with countermovement rebound jump performance, with a mixed-effects prediction companion.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -30,34 +30,31 @@
     <p class="story-lede">
       Session RPE is often collected and rarely read. This report takes
       every session the team has logged so far this season and renders it
-      as weekly load trends, acute-vs-chronic ratios (using exponentially 
-      weighted moving average; EWMA), team-vs-coach comparisons, and — the 
-      piece most load reports stop short of — correlation between 
-      load and the countermovement rebound jump performance.
+      as weekly load trends, acute-vs-chronic ratios, team-vs-coach
+      comparisons, and — the piece most load reports stop short of —
+      correlation between daily load and the next day's countermovement
+      rebound jump performance.
     </p>
 
     <div class="story-body">
       <h2>The question</h2>
       <p>
-        If we're going to ask every athlete to report their perceived 
-        exertion after each session, we need to ensure that the information 
-        collected serves a meaningful purpose. Our goal was to answer two 
-        important questions: First, how does the team's training load fluctuate 
-        throughout the season, and can we identify periods of increased or decreased 
-        training demands? Second, how do these training loads relate to subsequent 
-        neuromuscular performance, as measured through our jump assessments? 
-        Ultimately, we wanted to move beyond simply monitoring training load and 
-        begin examining how the demands imposed on our athletes might influence 
-        their physical performance in the days that follow.
+        If we're going to ask every athlete to score every session, the
+        output has to be worth more than a line in a spreadsheet. Two
+        things specifically: can the coaching staff see week-to-week how
+        hard the group has been pushed; and does the training load we've
+        imposed show up in the jump performance we measure a day or two
+        later. The second question is where most sRPE reporting stops —
+        this one tries to answer it.
       </p>
 
       <h2>The data</h2>
       <p>
-        The report consists of every logged session for the 2026–27 season 
-        to date, broken into focus, intensity (sRPE), load (sRPE × duration), 
-        and separated <em>RPE legs</em> / <em>RPE lungs</em> ratings so the 
-        report can distinguish neuromuscular from cardiovascular stress. 
-        Jump data is pulled from the parallel countermovement rebound jump testing
+        Every logged session for the 2026–27 season to date, broken into
+        focus, intensity (sRPE), load (sRPE × duration), and separated
+        <em>RPE legs</em> / <em>RPE lungs</em> ratings so the report can
+        distinguish neuromuscular from cardiovascular stress. Jump data
+        is pulled from the parallel countermovement rebound jump testing
         protocol and aligned by date.
       </p>
 
@@ -86,10 +83,35 @@
         <li><strong>Cumulative Team Load</strong><span>Season-to-date totals</span></li>
       </ul>
 
+      <h2 style="margin-top:48px;">A companion report — Part 2</h2>
+      <p>
+        Part 2 picks up where Section 6 of the main report left off. The
+        main report correlates two hand-picked CMRJ outputs against
+        weekly load; Part 2 pulls every CMRJ metric the testing system
+        records, screens each one through a within-athlete reliability
+        filter (CV% ≤ 10%, the sport-science convention for acceptable
+        or excellent), and runs the surviving metrics through a broader
+        correlation panel against weekly sRPE, RPE Legs, RPE Lungs, and
+        ACWR. It closes with a linear mixed-effects prediction model
+        with athlete as a random intercept and a quadratic term on ACWR,
+        so the data can speak to whether the load panel actually
+        <em>predicts</em> jump outcomes or only correlates with them —
+        and which load lever is the strongest.
+      </p>
+
+      <h3>What's in Part 2</h3>
+      <ul>
+        <li><strong>Reliability Pre-Filter</strong><span>Within-athlete CV% screen across every available CMRJ metric, with excellent / acceptable / noisy tiers</span></li>
+        <li><strong>Sign-Flipped Negative Metrics</strong><span>Countermovement depth and eccentric peak velocity re-oriented so higher = better uniformly across the panel</span></li>
+        <li><strong>Correlation Heatmaps</strong><span>Reliable CMRJ metrics vs weekly load, at both athlete-week and team-week resolutions</span></li>
+        <li><strong>Mixed-Effects Prediction</strong><span>One model per reliable CMRJ metric, linear + quadratic ACWR, athlete as random intercept, with marginal and conditional R² per target</span></li>
+        <li><strong>Summary of Findings</strong><span>Auto-generated staff-facing read of the strongest signals and the best-predicted jump outcome this season</span></li>
+      </ul>
+
       <p style="margin-top:24px; color:var(--text-muted);">
-        All athlete identifiers have been removed for public display.
-        The report preserves the structure, visualizations, and analyses
-        shared with the coaching staff.
+        All athlete identifiers have been removed for public display in
+        both reports. The analyses preserve the structure, visualizations,
+        and findings shared with the coaching staff.
       </p>
 
       <div class="cta-row">
@@ -98,6 +120,14 @@
           <span class="cta-caret">→</span>
         </a>
         <p class="cta-note">Opens in a new tab · ~3 MB · interactive HTML with Plotly</p>
+      </div>
+
+      <div class="cta-row" style="margin-top:24px;">
+        <a href="nmsu_srpe_report_2026_2027_part_2.html" class="cta" target="_blank" rel="noopener">
+          View Part 2 — correlations &amp; prediction
+          <span class="cta-caret">→</span>
+        </a>
+        <p class="cta-note">Opens in a new tab · companion mixed-effects analysis</p>
       </div>
     </div>
   </div>
