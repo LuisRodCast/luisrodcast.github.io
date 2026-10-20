@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Call Tracker — iPad-first sideline tool · Luis Rodriguez-Castellano</title>
+  <meta name="description" content="A production R Shiny application the coaching staff uses on an iPad to log every possession, then surface cross-session trends and practice-vs-game comparisons with statistical rigor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/portfolio.css">
+</head>
+<body>
+
+<header class="container nav">
+  <div class="nav-row">
+    <a href="/" class="nav-mark">Luis Rodriguez-Castellano</a>
+    <a href="/" class="nav-back">← Portfolio</a>
+  </div>
+</header>
+
+<section class="container">
+  <div class="col">
+    <p class="story-eyebrow">Shiny Application · In production</p>
+
+    <h1 class="story-head">
+      Every possession, tracked. Every decision, grounded in data.
+    </h1>
+
+    <p class="story-lede">
+      A mobile-first R Shiny application the coaching staff opens on an
+      iPad during practice and games, taps once per possession to log
+      the play, result, ball reversals, paint touches, clock, quarter,
+      and category — then flips to a dashboard that answers the
+      questions coaches actually ask: which plays travel from practice
+      to games, which categories produce the points, what the ACWR
+      curvature says about readiness.
+    </p>
+
+    <div class="story-body">
+      <h2>The question</h2>
+      <p>
+        Coaches make dozens of play calls per game. Most of them get
+        evaluated by feel afterward, which is where good evaluations
+        get buried under confirmation bias and the vividness of the
+        last possession. If an assistant is going to log every
+        possession anyway, the data should answer actual coaching
+        questions — not just produce a spreadsheet nobody reads.
+      </p>
+
+      <h2>The data</h2>
+      <p>
+        One row per possession, logged in &lt; 3 seconds on an iPad from
+        the bench. Fifteen possible result tiles covering every
+        realistic outcome: made/missed field goals, 1-, 2-, and 3-shot
+        free-throw sequences, And1 conversions (2 + 1 and 3 + 1),
+        turnovers, non-shooting fouls, and empty possessions.
+        Alongside the result: play name from the team's playbook,
+        quarter, optional category (Transition / Secondary / 2nd Shots /
+        HC Sets for games), per-possession ball reversals, paint
+        touches, and clock. Debounced auto-save to a Turso cloud SQLite
+        backend means the staff never thinks about saving.
+      </p>
+
+      <h2>The approach</h2>
+      <p>
+        <strong>Mobile-first by necessity.</strong> Built with
+        <code>shinyMobile</code> on a Framework7 dark theme, scaled for
+        a 12.9&quot; iPad in landscape. Big tap targets. One-handed
+        operation. Dark mode so the glow doesn&apos;t announce itself
+        to the arena. Session type (Practice vs Game) is a top-level
+        toggle that changes which quarters are available and whether
+        category tagging appears.
+      </p>
+      <p>
+        <strong>Statistical rigor where it matters.</strong> The Trends
+        tab doesn&apos;t just show numbers — it shows
+        <em>whether the numbers mean anything</em>. The practice-vs-game
+        comparison runs a Welch&apos;s t-test per play on the raw
+        possession points vectors, reports Δ PPP with a 95% confidence
+        interval, and colors the delta pill based on whether the CI
+        crosses zero (not just the point estimate&apos;s sign). A play
+        with a +0.5 PPP delta from 3 practice reps and 2 game reps gets
+        a gray &quot;too close to call&quot; pill, not a misleading
+        green one.
+      </p>
+      <p>
+        <strong>Production backend, isolated per-visitor demo.</strong>
+        The production app persists to Turso cloud SQLite over HTTP, with
+        every save a debounced batched write. The public demo linked
+        below swaps that backend for an in-memory per-visitor R list
+        so every browser tab stays isolated — no credentials, no shared
+        data, no risk to the production database.
+      </p>
+
+      <h2>What&apos;s inside</h2>
+      <ul>
+        <li><strong>Tracker</strong><span>Live possession logger. Play dropdown, category dropdown (games), quarter chips, 15-tile result grid, ball-reversal and paint-touch counters, play history underneath</span></li>
+        <li><strong>Summary</strong><span>Per-play rollup for the current session. In game mode, expands to one row per (play × category) tuple so you can see which plays work in which contexts</span></li>
+        <li><strong>Coach</strong><span>Last-5 strip, 8 top-line stat tiles (POSS, PPP, FG%, TURNOVERS, TO%, LAST 5 PPP…), Best/Worst/Most-Used hero cards, play comparison table, category filter chips</span></li>
+        <li><strong>Sheet</strong><span>Chronological play-by-play log, with CSV export for post-game review</span></li>
+        <li><strong>History</strong><span>Saved sessions browser. View/Delete, with per-session rollup stats</span></li>
+        <li><strong>Trends</strong><span>Cross-session analytics: PPP over sessions, usage frequency, make/miss/TO mix, quarter heatmap, <em>plus</em> a CATEGORY ANALYSES block (usage share, PPP, play × category heatmap, category × quarter heatmap, ball-reversals and paint-touches tactical-signature scatters) and a PRACTICE vs GAME table with Welch&apos;s t-test + 95% CI</span></li>
+      </ul>
+
+      <p style="margin-top:24px; color:var(--text-muted);">
+        The live demo is a sanitized build of the production app — same
+        UI, same analytics, same statistical pipeline, but with a
+        generic playbook (ISO, HORNS, FLEX, PNR-L/R, DRAG, etc.), two
+        preloaded fake sessions so the app lands with data to click
+        through, and no connection to any real database. Nothing you
+        log during the demo persists beyond your browser tab.
+      </p>
+
+      <div class="cta-row">
+        <a href="https://01a157c3-c0a2-be2c-ae6c-735365017f1b.share.connect.posit.cloud/" class="cta" target="_blank" rel="noopener">
+          Open live demo
+          <span class="cta-caret">→</span>
+        </a>
+        <p class="cta-note">Opens in a new tab · hosted on Posit Connect Cloud · no login required · first load may take ~10 s if the app is cold-starting</p>
+      </div>
+
+      <div class="cta-row" style="margin-top:24px;">
+        <a href="https://github.com/LuisRodCast/playcall_tracker_demo" class="cta" target="_blank" rel="noopener">
+          Code on GitHub
+          <span class="cta-caret">→</span>
+        </a>
+        <p class="cta-note">Public source for the demo build — in-memory session store, generic playbook, same UI/analytics as production</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="container">
+    <p>© 2026 Luis Rodriguez-Castellano · <a href="/" style="color:var(--text-muted);">Back to portfolio</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
